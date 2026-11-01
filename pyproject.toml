@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "akar-scan"
+version = "1.0.0"
+description = "Deep web application scanner - recon, crawl, and vulnerability checks"
+requires-python = ">=3.10"
+dependencies = ["httpx[http2]>=0.27"]
+
+[project.scripts]
+akar = "akar.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["akar*"]
