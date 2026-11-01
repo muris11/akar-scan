@@ -1,5 +1,7 @@
 # akar-scan
 
+> 🇬🇧 English | [🇮🇩 Bahasa Indonesia](README.id.md)
+
 **Deep web application scanner** — reconnaissance, crawling, fingerprinting, and active
 vulnerability checks, with console / JSON / HTML reporting.
 
