@@ -241,7 +241,7 @@ Fedora/RHEL: `sudo dnf install python3 python3-pip`; Arch: `sudo pacman -S pytho
 Semua platform — ini seharusnya semua berhasil:
 
 ```bash
-akar --version          # cetak: akar 1.1.0
+akar --version          # cetak: akar 1.1.1
 akar --list-modules     # cetak tabel modul
 akar --help             # usage lengkap
 ```
@@ -398,7 +398,7 @@ Jalankan `akar --help` untuk referensi live. Flag dikelompokkan per area:
 | `--header K:V` | — | Header kustom; bisa diulang. |
 | `--cookie VALUE` | — | Nilai header `Cookie`. |
 | `--auth USER:PASS` | — | HTTP basic auth. |
-| `--user-agent UA` | `AkarScan/1.1.0 (+security-scanner)` | User-Agent kustom. |
+| `--user-agent UA` | `AkarScan/1.1.1 (+security-scanner)` | User-Agent kustom. |
 | `--insecure` | mati | Lewati verifikasi sertifikat TLS. |
 | `--no-http2` | mati | Nonaktifkan HTTP/2. |
 
@@ -680,4 +680,4 @@ Kalau menjalankan dari venv, kamu bisa menghapus seluruh folder `.venv` saja.
 
 ---
 
-*akar-scan v1.1.0 — dibangun dengan Python + httpx.*
+*akar-scan v1.1.1 — dibangun dengan Python + httpx.*
