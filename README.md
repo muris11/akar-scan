@@ -20,6 +20,7 @@ vulnerabilities — exposed files, misconfigurations, injection points, and more
 - [Features](#features)
 - [Requirements](#requirements)
 - [Installation](#installation)
+  - [Quick download (Windows .exe)](#quick-download-windows-exe)
   - [Windows](#windows)
   - [macOS](#macos)
   - [Linux](#linux)
@@ -33,6 +34,7 @@ vulnerabilities — exposed files, misconfigurations, injection points, and more
 - [How it works](#how-it-works)
 - [Troubleshooting / FAQ](#troubleshooting--faq)
 - [Project structure](#project-structure)
+- [Contributing](#contributing)
 - [Uninstall](#uninstall)
 - [Responsible use](#responsible-use)
 
@@ -84,6 +86,24 @@ If it prints `Python 3.10.x` or higher, you're good. If not, see
 ---
 
 ## Installation
+
+### Quick download (Windows .exe)
+
+No Python needed — grab the standalone executable from the
+[Releases page](https://github.com/muris11/akar-scan/releases):
+
+1. Download the latest `akar.exe` (under *Assets*).
+2. Open PowerShell / CMD where you saved it and run:
+   ```powershell
+   .\akar.exe --version
+   .\akar.exe https://example.com
+   ```
+
+> Windows may show a SmartScreen warning for unsigned binaries (common for any
+> downloaded .exe). Click *More info → Run anyway* — or build from source below
+> if you prefer to audit the code first. The `.exe` is also rebuilt
+> automatically by GitHub Actions on every `v*` tag (see
+> [.github/workflows/release.yml](.github/workflows/release.yml)).
 
 ### Windows
 
@@ -223,7 +243,7 @@ Fedora/RHEL: `sudo dnf install python3 python3-pip`; Arch: `sudo pacman -S pytho
 All platforms — these should all succeed:
 
 ```bash
-akar --version          # prints: akar 1.0.0
+akar --version          # prints: akar 1.1.0
 akar --list-modules     # prints the module table
 akar --help             # full usage
 ```
@@ -380,7 +400,7 @@ Run `akar --help` for the live reference. Flags grouped by area:
 | `--header K:V` | — | Custom header; repeatable. |
 | `--cookie VALUE` | — | `Cookie` header value. |
 | `--auth USER:PASS` | — | HTTP basic auth. |
-| `--user-agent UA` | `AkarScan/1.0.0 (+security-scanner)` | Custom User-Agent. |
+| `--user-agent UA` | `AkarScan/1.1.0 (+security-scanner)` | Custom User-Agent. |
 | `--insecure` | off | Skip TLS certificate verification. |
 | `--no-http2` | off | Disable HTTP/2. |
 
@@ -623,6 +643,24 @@ python -m akar example.com --format console
 
 ---
 
+## Contributing
+
+Contributions are welcome — new check modules, fixes, docs, translations!
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) for the dev setup, the "add a check
+  module" walkthrough, code style, and the PR checklist.
+- Follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+- Use the issue templates (bug report / feature request) and the PR template.
+- PRs must keep `README.md` and `README.id.md` in sync, and CI (Linux +
+  Windows) must pass.
+
+Quick dev loop:
+
+```bash
+pip install -e .
+python -m akar --list-modules
+```
+
 ## Uninstall
 
 ```bash
@@ -643,4 +681,4 @@ If you ran from a venv, you can delete the whole `.venv` folder instead.
 
 ---
 
-*akar-scan v1.0.0 — built with Python + httpx.*
+*akar-scan v1.1.0 — built with Python + httpx.*

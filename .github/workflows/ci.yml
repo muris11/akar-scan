@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.12"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: pip install -e .
+
+      - name: Version & modules
+        run: |
+          python -m akar --version
+          python -m akar --list-modules
+
+      - name: End-to-end scan against local target
+        shell: bash
+        run: |
+          mkdir -p demo
+          printf '<html><body><a href="p2.html">x</a></body></html>' > demo/index.html
+          printf 'SECRET=1' > demo/.env
+          python -m http.server 8000 --bind 127.0.0.1 --directory demo &
+          sleep 2
+          python -m akar http://127.0.0.1:8000 --format json -o out --timeout 5
+          test -s out.json

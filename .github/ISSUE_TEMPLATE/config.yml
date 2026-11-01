@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability in akar-scan
+    url: https://github.com/muris11/akar-scan/security/advisories/new
+    about: Please report vulnerabilities in akar-scan itself privately (do not open a public issue).
+  - name: Questions & discussion
+    url: https://github.com/muris11/akar-scan/discussions
+    about: Ask usage questions or discuss ideas.

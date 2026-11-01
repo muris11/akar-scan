@@ -20,6 +20,7 @@ terekspos, misconfiguration, titik injeksi, dan lainnya.
 - [Fitur](#fitur)
 - [Persyaratan](#persyaratan)
 - [Instalasi](#instalasi)
+  - [Download cepat (Windows .exe)](#download-cepat-windows-exe)
   - [Windows](#windows)
   - [macOS](#macos)
   - [Linux](#linux)
@@ -33,6 +34,7 @@ terekspos, misconfiguration, titik injeksi, dan lainnya.
 - [Cara kerja](#cara-kerja)
 - [Troubleshooting / FAQ](#troubleshooting--faq)
 - [Struktur proyek](#struktur-proyek)
+- [Berkontribusi](#berkontribusi)
 - [Uninstall](#uninstall)
 - [Penggunaan yang bertanggung jawab](#penggunaan-yang-bertanggung-jawab)
 
@@ -83,6 +85,24 @@ Kalau keluar `Python 3.10.x` atau lebih tinggi, beres. Kalau tidak, lihat
 ---
 
 ## Instalasi
+
+### Download cepat (Windows .exe)
+
+Tanpa perlu Python — ambil executable standalone dari
+[halaman Releases](https://github.com/muris11/akar-scan/releases):
+
+1. Download `akar.exe` terbaru (di bagian *Assets*).
+2. Buka PowerShell / CMD di lokasi file itu lalu jalankan:
+   ```powershell
+   .\akar.exe --version
+   .\akar.exe https://example.com
+   ```
+
+> Windows mungkin menampilkan peringatan SmartScreen untuk biner unsigned (wajar
+> untuk .exe hasil download). Klik *More info → Run anyway* — atau build dari
+> source di bawah kalau mau audit kode-nya dulu. `.exe` juga dibangun ulang
+> otomatis oleh GitHub Actions setiap tag `v*` (lihat
+> [.github/workflows/release.yml](.github/workflows/release.yml)).
 
 ### Windows
 
@@ -221,7 +241,7 @@ Fedora/RHEL: `sudo dnf install python3 python3-pip`; Arch: `sudo pacman -S pytho
 Semua platform — ini seharusnya semua berhasil:
 
 ```bash
-akar --version          # cetak: akar 1.0.0
+akar --version          # cetak: akar 1.1.0
 akar --list-modules     # cetak tabel modul
 akar --help             # usage lengkap
 ```
@@ -378,7 +398,7 @@ Jalankan `akar --help` untuk referensi live. Flag dikelompokkan per area:
 | `--header K:V` | — | Header kustom; bisa diulang. |
 | `--cookie VALUE` | — | Nilai header `Cookie`. |
 | `--auth USER:PASS` | — | HTTP basic auth. |
-| `--user-agent UA` | `AkarScan/1.0.0 (+security-scanner)` | User-Agent kustom. |
+| `--user-agent UA` | `AkarScan/1.1.0 (+security-scanner)` | User-Agent kustom. |
 | `--insecure` | mati | Lewati verifikasi sertifikat TLS. |
 | `--no-http2` | mati | Nonaktifkan HTTP/2. |
 
@@ -622,6 +642,24 @@ python -m akar example.com --format console
 
 ---
 
+## Berkontribusi
+
+Kontribusi dipersilakan — modul check baru, perbaikan, dokumen, terjemahan!
+
+- Baca [CONTRIBUTING.md](CONTRIBUTING.md) untuk setup dev, panduan "menambah
+  modul check", gaya kode, dan checklist PR.
+- Ikuti [Code of Conduct](CODE_OF_CONDUCT.md).
+- Pakai template issue (bug report / feature request) dan template PR.
+- PR wajib menjaga `README.md` dan `README.id.md` tetap sinkron, dan CI (Linux +
+  Windows) harus hijau.
+
+Quick dev loop:
+
+```bash
+pip install -e .
+python -m akar --list-modules
+```
+
 ## Uninstall
 
 ```bash
@@ -642,4 +680,4 @@ Kalau menjalankan dari venv, kamu bisa menghapus seluruh folder `.venv` saja.
 
 ---
 
-*akar-scan v1.0.0 — dibangun dengan Python + httpx.*
+*akar-scan v1.1.0 — dibangun dengan Python + httpx.*
