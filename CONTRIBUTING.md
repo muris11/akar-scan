@@ -17,7 +17,7 @@ cd akar-scan
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -e .
-python -m akar --version     # sanity check → akar 1.1.1
+python -m akar --version     # sanity check → akar 1.1.2
 ```
 
 ### macOS / Linux (zsh/bash)
@@ -28,7 +28,7 @@ cd akar-scan
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
-python -m akar --version     # sanity check → akar 1.1.1
+python -m akar --version     # sanity check → akar 1.1.2
 ```
 
 Requirements: Python ≥ 3.10. No other dev dependencies — the project is

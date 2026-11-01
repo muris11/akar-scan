@@ -243,7 +243,7 @@ Fedora/RHEL: `sudo dnf install python3 python3-pip`; Arch: `sudo pacman -S pytho
 All platforms — these should all succeed:
 
 ```bash
-akar --version          # prints: akar 1.1.1
+akar --version          # prints: akar 1.1.2
 akar --list-modules     # prints the module table
 akar --help             # full usage
 ```
@@ -400,7 +400,7 @@ Run `akar --help` for the live reference. Flags grouped by area:
 | `--header K:V` | — | Custom header; repeatable. |
 | `--cookie VALUE` | — | `Cookie` header value. |
 | `--auth USER:PASS` | — | HTTP basic auth. |
-| `--user-agent UA` | `AkarScan/1.1.1 (+security-scanner)` | Custom User-Agent. |
+| `--user-agent UA` | `AkarScan/1.1.2 (+security-scanner)` | Custom User-Agent. |
 | `--insecure` | off | Skip TLS certificate verification. |
 | `--no-http2` | off | Disable HTTP/2. |
 
@@ -681,4 +681,4 @@ If you ran from a venv, you can delete the whole `.venv` folder instead.
 
 ---
 
-*akar-scan v1.1.1 — built with Python + httpx.*
+*akar-scan v1.1.2 — built with Python + httpx.*
